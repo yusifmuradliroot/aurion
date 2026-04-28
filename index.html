@@ -1,35 +1,166 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aurion</title>
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
-  <!-- Ana İçerik -->
-  <div id="container">
-    <h1 id="title">Loading...</h1>
-    <p id="description"></p>
-    <div class="projects" id="projects"></div>
-    <footer>— <span id="author">Yusf</span> · <span id="year">2026</span></footer>
-  </div>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap');
 
-  <!-- Ayarlar Simgesi -->
-  <button id="settings-btn" onclick="toggleSettings()">⚙️</button>
+:root {
+  --bg: #000;
+  --text: #0f0;
+  --accent: #0ff;
+  --border: #030;
+  --panel-bg: rgba(10, 10, 10, 0.9);
+  --glow: 0 0 8px #0f0, 0 0 14px #0f0;
+}
 
-  <!-- Ayarlar Menüsü -->
-  <div id="settings-panel" class="hidden">
-    <label for="lang-select">Language:</label>
-    <select id="lang-select" onchange="saveLangAndReload()"></select>
+body.light {
+  --bg: #f0f0f0;
+  --text: #000;
+  --accent: #006;
+  --border: #ccc;
+  --panel-bg: white;
+  --glow: none;
+}
 
-    <label for="theme-toggle">Dark Mode:</label>
-    <input type="checkbox" id="theme-toggle" onchange="saveTheme()">
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Share Tech Mono', monospace;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s, color 0.4s;
+  overflow: hidden;
+}
 
-    <button onclick="closeSettings()">Close</button>
-  </div>
+/* Glitch Başlık */
+.glitch-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  position: relative;
+  text-transform: uppercase;
+  animation: glitch 3s infinite;
+  color: var(--text);
+  text-shadow: var(--glow);
+}
 
-  <!-- JS Yüklemesi -->
-  <script src="assets/main.js"></script>
-</body>
-</html>
+@keyframes glitch {
+  0% { text-shadow: 0 0 2px #fff, 0 0 5px #0f0, 0 0 10px #0f0; }
+  50% { text-shadow: 0 -1px 0 #0f0, 0 1px 0 #00f; }
+  100% { text-shadow: 0 0 2px #fff, 0 0 5px #00f, 0 0 10px #00f; }
+}
+
+.description {
+  max-width: 600px;
+  text-align: center;
+  margin: 1rem auto;
+  font-size: 1.1rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.projects {
+  margin: 2rem 0;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.projects a {
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
+
+.projects a:hover {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: var(--glow);
+}
+
+footer {
+  margin-top: 3rem;
+  font-size: 0.9rem;
+  opacity: 0.6;
+  letter-spacing: 1px;
+}
+
+/* Ayarlar Paneli – Modern Pop-up */
+#settings-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.4rem;
+  z-index: 100;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+}
+
+#settings-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+}
+
+#settings-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 280px;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  z-index: 99;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+}
+
+#settings-panel.visible {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#settings-panel label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.9rem;
+}
+
+#settings-panel select,
+#settings-panel input {
+  width: 100%;
+  padding: 0.4rem;
+  margin-bottom: 1rem;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+}
+
+#settings-panel button {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+#settings-panel button:hover {
+  box-shadow: var(--glow);
+}
