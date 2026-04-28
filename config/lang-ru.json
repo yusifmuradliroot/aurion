@@ -1,0 +1,14 @@
+{
+  "title": "AURION",
+  "description": "Тихая сила, стоящая за всем.",
+  "subtext": "Не проект. Архитектура контроля.",
+  "projects": [
+    { "name": "easylink", "url": "https://yusifmuradliroot.github.io/easylink/" },
+    { "name": "me", "url": "https://yusifmuradliroot.github.io/me/" }
+  ],
+  "author": "Yusf",
+  "settings": {
+    "language": "Язык",
+    "theme": "Тёмная тема"
+  }
+}
