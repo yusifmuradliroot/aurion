@@ -18,10 +18,10 @@
 
   <div id="settings-panel" class="hidden">
     <label for="lang-select">Language:</label>
-    <select id="lang-select"></select>
+    <select id="lang-select" onchange="saveLangAndReload()"></select>
 
     <label for="theme-toggle">Dark Mode:</label>
-    <input type="checkbox" id="theme-toggle">
+    <input type="checkbox" id="theme-toggle" onchange="saveTheme()">
 
     <button onclick="closeSettings()">Close</button>
   </div>
