@@ -1,0 +1,14 @@
+{
+  "title": "AURION",
+  "description": "Hər şeyin arxasında səssiz qüvvət.",
+  "subtext": "Layihə deyil. Nəzarət arxitekturası.",
+  "projects": [
+    { "name": "easylink", "url": "https://yusifmuradliroot.github.io/easylink/" },
+    { "name": "me", "url": "https://yusifmuradliroot.github.io/me/" }
+  ],
+  "author": "Yusf",
+  "settings": {
+    "language": "Dil",
+    "theme": "Qaranlıq Rejim"
+  }
+}
