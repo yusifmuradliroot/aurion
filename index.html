@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurion</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- Ana İçerik -->
+  <div id="container">
+    <h1 id="title">Loading...</h1>
+    <p id="description"></p>
+    <div class="projects" id="projects"></div>
+    <footer>— <span id="author">Yusf</span> · <span id="year">2026</span></footer>
+  </div>
+
+  <!-- Ayarlar Simgesi -->
+  <button id="settings-btn" onclick="toggleSettings()">⚙️</button>
+
+  <!-- Ayarlar Menüsü -->
+  <div id="settings-panel" class="hidden">
+    <label for="lang-select">Language:</label>
+    <select id="lang-select" onchange="saveLangAndReload()"></select>
+
+    <label for="theme-toggle">Dark Mode:</label>
+    <input type="checkbox" id="theme-toggle" onchange="saveTheme()">
+
+    <button onclick="closeSettings()">Close</button>
+  </div>
+
+  <!-- JS Yüklemesi -->
+  <script src="assets/main.js"></script>
+</body>
+</html>
