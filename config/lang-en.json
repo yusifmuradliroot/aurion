@@ -1,0 +1,14 @@
+{
+  "title": "AURION",
+  "description": "The silent force behind everything.",
+  "subtext": "Not a project. The architecture of control.",
+  "projects": [
+    { "name": "easylink", "url": "https://yusifmuradliroot.github.io/easylink/" },
+    { "name": "me", "url": "https://yusifmuradliroot.github.io/me/" }
+  ],
+  "author": "Yusf",
+  "settings": {
+    "language": "Language",
+    "theme": "Dark Mode"
+  }
+}
